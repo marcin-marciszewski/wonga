@@ -19,7 +19,7 @@ Z folderu źródłowego
 docker-compose up -d
 ```
 
-##### 3. Instalacja frontendu:
+##### 3. Instalacja backendu:
 
 Z folderu źródłowego
 
