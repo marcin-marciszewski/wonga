@@ -48,6 +48,11 @@ class ProductController extends AbstractController
         }
 
         $newProduct = $requestData->product;
+
+        if (empty($newProduct->name)) {
+            return $this->json(['error' => 'Name can not be empty'], 400);
+        }
+
         $product = new Product();
         $product->setName((string)$newProduct->name);
         $product->setStock((int)$newProduct->stock);
