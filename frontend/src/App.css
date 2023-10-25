@@ -1,0 +1,66 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #e2d5de;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+ul li:hover {
+  background: #ddd;
+}
+
+ul div.checked {
+  text-decoration: line-through;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 20px;
+  scale: 1.8;
+  text-align: center;
+}
+
+.close-column {
+  width: 5%;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.add-form .input-fields {
+  display: flex;
+  gap: 5px;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-form button {
+  margin-top: 15px;
+}
