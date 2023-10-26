@@ -26,6 +26,7 @@ class ProductController extends AbstractController
     public function add(Request $request): Response
     {
         $this->productsService->create($request);
+
         return $this->redirectToRoute('products_index');
     }
 
