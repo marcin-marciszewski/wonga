@@ -2,16 +2,7 @@
 
 ### Instalacja:
 
-##### 1. Instalacja frontendu:
-
-Z folderu źródłowego
-
-```
-cd frontend
-npm install
-```
-
-##### 2. Uruchom dockera:
+##### 1. Uruchom dockera:
 
 Z folderu źródłowego
 
@@ -19,29 +10,46 @@ Z folderu źródłowego
 docker-compose up -d
 ```
 
-##### 3. Instalacja backendu:
+##### 2. Połącz się z terimalem kontenera.
 
 Z folderu źródłowego
 
 ```
-cd app
+docker exec -it php bash
+```
+
+##### 3. Instalacja backendu:
+
+Z folderu źródłowego kontenera
+
+```
 composer install
 ```
 
 ##### 4. Uruchom migracje bazy danych.
 
-Z folderu źródłowego
+Z folderu źródłowego kontenera
 
 ```
-docker-compose run --rm php bin/console doctrine:migrations:migrate
-
-```
-
-albo z folderu źródłowego
-
-```
-docker exec -it php bash
 bin/console doctrine:migrations:migrate
+
 ```
 
-##### 5. Otwórz projekt na: http://localhost:3000/
+##### 4. Uruchom migracje bazy danych.
+
+Z folderu źródłowego kontenera
+
+```
+bin/console doctrine:migrations:migrate
+
+```
+
+##### 4. Populacja bazy danych.
+
+Z folderu źródłowego kontenera
+
+```
+php bin/console doctrine:fixtures:load
+```
+
+##### 5. Otwórz projekt na: http://localhost:8080/products
