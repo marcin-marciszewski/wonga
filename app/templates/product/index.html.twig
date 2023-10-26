@@ -1,20 +1,71 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}
+  Wonga
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/project/src/Controller/ProductController.php'|file_link(0) }}">src/Controller/ProductController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/project/templates/product/index.html.twig'|file_link(0) }}">templates/product/index.html.twig</a></code></li>
-    </ul>
-</div>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="my-5 border p-3">
+        <form method="POST" action="/products">
+          <div class="d-flex justify-content-between">
+            <div class="form-group">
+              <label for="name">Nazwa</label>
+              <input required type="text" class="form-control" id="name" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="stock">Ilość</label>
+              <input min="0" type="number" value="0" class="form-control" id="stock" name="stock" />
+            </div>
+            <div class="form-group">
+              <label for="net_price">Cena netto</label>
+              <input min="0" type="number" value="0" class="form-control" id="net_price" name="net_price" />
+            </div>
+            <div class="form-group">
+              <label for="gross_price">Cena brutto</label>
+              <input min="0" type="number" value="0" class="form-control" id="gross_price" name="gross_price" />
+            </div>
+            <div class="form-group">
+              <label for="vat_rate">Stawka VAT</label>
+              <input min="0" type="number" value="0" class="form-control" id="vat_rate" name="vat_rate" />
+            </div>
+          </div>
+          <div class="col text-center mt-3">
+            <button type="submit" class="btn btn-primary">Dodaj Produkt</button>
+          </div>
+        </form>
+      </div>
+      <div class="border p-3">
+        <h1 class="text-center">Lista Produktów</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Nazwa</th>
+              <th>Ilość</th>
+              <th>Cena netto</th>
+              <th>Cena brutto</th>
+              <th>Stawka VAT</th>
+              <th>Usuń</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+              <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.getNetPrice }}</td>
+                <td>{{ product.getGrossPrice }}</td>
+                <td>{{ product.getVatRate }}%</td>
+                <td>
+                  <form action="/products/delete/{{ product.id }}" method="POST">
+                    <button class="btn btn-danger btn-sm" aria-hidden="true">&times;</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 {% endblock %}

@@ -38,11 +38,9 @@ class Product
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): void
     {
         $this->name = $name;
-
-        return $this;
     }
 
     public function getStock(): ?int
@@ -50,11 +48,9 @@ class Product
         return $this->stock;
     }
 
-    public function setStock(int $stock): static
+    public function setStock(int $stock): void
     {
         $this->stock = $stock;
-
-        return $this;
     }
 
     public function getNetPrice(): ?int
@@ -62,11 +58,9 @@ class Product
         return $this->net_price;
     }
 
-    public function setNetPrice(int $net_price): static
+    public function setNetPrice(int $net_price): void
     {
         $this->net_price = $net_price;
-
-        return $this;
     }
 
     public function getGrossPrice(): ?int
@@ -74,11 +68,9 @@ class Product
         return $this->gross_price;
     }
 
-    public function setGrossPrice(int $gross_price): static
+    public function setGrossPrice(int $gross_price): void
     {
         $this->gross_price = $gross_price;
-
-        return $this;
     }
 
     public function getVatRate(): ?int
@@ -86,10 +78,8 @@ class Product
         return $this->vat_rate;
     }
 
-    public function setVatRate(int $vat_rate): static
+    public function setVatRate(int $vat_rate): void
     {
         $this->vat_rate = $vat_rate;
-
-        return $this;
     }
 }
