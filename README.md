@@ -19,7 +19,7 @@ Z folderu źródłowego
 docker-compose up -d
 ```
 
-##### 3. Instalacja frontendu:
+##### 3. Instalacja backendu:
 
 Z folderu źródłowego
 
@@ -40,7 +40,6 @@ docker-compose run --rm php bin/console doctrine:migrations:migrate
 albo z folderu źródłowego
 
 ```
-cd app
 docker exec -it php bash
 bin/console doctrine:migrations:migrate
 ```
