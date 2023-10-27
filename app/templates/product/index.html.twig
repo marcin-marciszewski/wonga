@@ -37,34 +37,38 @@
       </div>
       <div class="border p-3">
         <h1 class="text-center">Lista Produktów</h1>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Nazwa</th>
-              <th>Ilość</th>
-              <th>Cena netto</th>
-              <th>Cena brutto</th>
-              <th>Stawka VAT</th>
-              <th>Usuń</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for product in products %}
+        {% if (products|length) > 0 %}
+          <table class="table table-striped">
+            <thead>
               <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ product.stock }}</td>
-                <td>{{ product.getNetPrice }}</td>
-                <td>{{ product.getGrossPrice }}</td>
-                <td>{{ product.getVatRate }}%</td>
-                <td>
-                  <form action="/products/delete/{{ product.id }}" method="POST">
-                    <button class="btn btn-danger btn-sm" aria-hidden="true">&times;</button>
-                  </form>
-                </td>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Cena netto</th>
+                <th>Cena brutto</th>
+                <th>Stawka VAT</th>
+                <th>Usuń</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {% for product in products %}
+                <tr>
+                  <td>{{ product.name }}</td>
+                  <td>{{ product.stock }}</td>
+                  <td>{{ product.getNetPrice }}</td>
+                  <td>{{ product.getGrossPrice }}</td>
+                  <td>{{ product.getVatRate }}%</td>
+                  <td>
+                    <form action="/products/delete/{{ product.id }}" method="POST">
+                      <button class="btn btn-danger btn-sm" aria-hidden="true">&times;</button>
+                    </form>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <h3 class="text-center">Brak produktów</h3>
+        {% endif %}
       </div>
     </div>
   </div>
