@@ -35,7 +35,7 @@ bin/console doctrine:migrations:migrate
 
 ```
 
-##### 4. Uruchom migracje bazy danych.
+##### 5. Uruchom migracje bazy danych.
 
 Z folderu źródłowego kontenera
 
@@ -44,7 +44,7 @@ bin/console doctrine:migrations:migrate
 
 ```
 
-##### 4. Populacja bazy danych.
+##### 6. Populacja bazy danych.
 
 Z folderu źródłowego kontenera
 
@@ -52,4 +52,4 @@ Z folderu źródłowego kontenera
 php bin/console doctrine:fixtures:load
 ```
 
-##### 5. Otwórz projekt na: http://localhost:8080/products
+##### 7. Otwórz projekt na: http://localhost:8080/products
